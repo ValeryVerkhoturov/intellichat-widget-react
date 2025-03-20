@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "IntelliChat Widget React",
   "author": "Valery Verkhoturov",
-  "homepage": "https://github.com/jasonsturges/vite-typescript-npm-package",
-  "repository": "github:jasonsturges/vite-typescript-npm-package",
+  "homepage": "https://github.com/ValeryVerkhoturov/intellichat-widget-react",
+  "repository": "github:ValeryVerkhoturov/intellichat-widget-react",
   "license": "ISC",
   "keywords": [
     "vite",
     "typescript",
     "npm",
-    "package"
+    "package",
+    "intellichat",
+    "widget",
+    "react"
   ],
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
