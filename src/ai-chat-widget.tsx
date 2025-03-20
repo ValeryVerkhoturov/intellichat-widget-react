@@ -61,5 +61,5 @@ export const AiChatWidget: FC<AiChatWidgetProps> = ({
     return () => clearTimeout(timeoutId);
   }, [token, proxy, url]);
 
-  return null;
+  return <div />;
 };

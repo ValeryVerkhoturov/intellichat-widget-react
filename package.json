@@ -1,11 +1,11 @@
 {
   "name": "intellichat-widget-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "IntelliChat Widget React",
   "author": "Valery Verkhoturov",
   "homepage": "https://github.com/ValeryVerkhoturov/intellichat-widget-react",
   "repository": "github:ValeryVerkhoturov/intellichat-widget-react",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "vite",
     "typescript",
