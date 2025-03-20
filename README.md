@@ -33,6 +33,38 @@ function App() {
 export default App;
 ```
 
+### Next.js Implementation
+
+For Next.js applications, use dynamic imports to avoid SSR issues:
+
+```jsx
+'use client';
+
+import React from 'react';
+import dynamic from 'next/dynamic';
+
+// Dynamically import the widget to prevent SSR issues
+const AiChatWidget = dynamic(
+  () => import('intellichat-widget-react').then((mod) => mod.AiChatWidget),
+  { ssr: false }
+);
+
+function ChatPage() {
+  return (
+    <div>
+      <h1>My Application</h1>
+      
+      <AiChatWidget 
+        token="your-intellichat-api-token"
+        proxy="https://your-custom-proxy.com"
+      />
+    </div>
+  );
+}
+
+export default ChatPage;
+```
+
 ### With Custom API Proxy
 
 If you need to use a custom API proxy:

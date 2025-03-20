@@ -48,14 +48,14 @@ const initAiChatWidget = async (domain: string, token: string, proxy?: string): 
   window.aiChatDidInit = true;
 };
 
-export function AiChatWidget({
+export default function AiChatWidget({
   token,
   proxy,
   url = "https://widget.intellichat.ru"
 }: AiChatWidgetProps) {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      initAiChatWidget(url, token, proxy).catch(console.error);
+      initAiChatWidget(url!, token, proxy).catch(console.error);
     }, 100);
 
     return () => clearTimeout(timeoutId);
