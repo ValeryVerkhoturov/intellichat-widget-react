@@ -10,17 +10,18 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "mylib",
+      name: "IntellichatWidgetReact",
       formats: ["es", "cjs", "umd", "iife"],
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: ["react", "react-dom", "react/jsx-runtime"],
       output: {
         exports: "auto",
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+          "react/jsx-runtime": "jsxRuntime"
         },
       },
     },

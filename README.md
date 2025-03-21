@@ -89,6 +89,38 @@ function App() {
 export default App;
 ```
 
+## Troubleshooting
+
+### Fixing React Hook Errors
+
+If you encounter React hook errors like:
+
+```
+Warning: Invalid hook call. Hooks can only be called inside of the body of a function component.
+```
+
+This is typically caused by having multiple versions of React in your application. To fix this:
+
+1. Make sure your project uses a consistent version of React:
+
+```bash
+# Check for duplicate React installations
+npm ls react
+```
+
+2. For Next.js projects, use the dynamic import method shown above.
+
+3. If using a complex application with many dependencies, add resolutions to your package.json:
+
+```json
+"resolutions": {
+  "react": "^18.0.0",
+  "react-dom": "^18.0.0"
+}
+```
+
+4. If using npm, consider using `npm dedupe` to eliminate duplicate dependencies.
+
 ## How It Works
 
 The IntelliChat Widget React component:

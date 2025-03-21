@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect } from 'react';
+import { FC, useEffect, memo } from 'react';
 
 interface AiChatWidgetProps {
   token: string;
@@ -30,6 +30,9 @@ const loadScript = (src: string, type: string = 'module'): Promise<void> => {
 };
 
 const initAiChatWidget = async (domain: string, token: string, proxy?: string): Promise<void> => {
+  // For SSR
+  if (typeof window === 'undefined') return;
+  
   if (window.aiChatDidInit) {
     return;
   }
@@ -43,23 +46,33 @@ const initAiChatWidget = async (domain: string, token: string, proxy?: string): 
   `;
   document.body.appendChild(configScript);
 
-  await loadScript(`${domain}/widget.js`);
-
-  window.aiChatDidInit = true;
+  try {
+    await loadScript(`${domain}/widget.js`);
+    window.aiChatDidInit = true;
+  } catch (error) {
+    console.error('Failed to initialize IntelliChat widget:', error);
+  }
 };
 
-export default function AiChatWidget({
+function AiChatWidgetComponent({
   token,
   proxy,
   url = "https://widget.intellichat.ru"
 }: AiChatWidgetProps) {
   useEffect(() => {
+    // For SSR
+    if (typeof window === 'undefined') return;
+    
     const timeoutId = setTimeout(() => {
-      initAiChatWidget(url!, token, proxy).catch(console.error);
+      initAiChatWidget(url, token, proxy).catch(console.error);
     }, 100);
 
     return () => clearTimeout(timeoutId);
   }, [token, proxy, url]);
 
-  return <div />;
+  return null;
 }
+
+export const AiChatWidget = memo(AiChatWidgetComponent);
+
+export default AiChatWidget;
