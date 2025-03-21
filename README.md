@@ -49,20 +49,19 @@ const AiChatWidget = dynamic(
   { ssr: false }
 );
 
-function ChatPage() {
+function App() {
   return (
     <div>
       <h1>My Application</h1>
       
       <AiChatWidget 
         token="your-intellichat-api-token"
-        proxy="https://your-custom-proxy.com"
       />
     </div>
   );
 }
 
-export default ChatPage;
+export default App;
 ```
 
 ### With Custom API Proxy
@@ -80,7 +79,6 @@ function App() {
       
       <AiChatWidget 
         token="your-intellichat-api-token"
-        proxy="https://your-custom-proxy.com"
       />
     </div>
   );
