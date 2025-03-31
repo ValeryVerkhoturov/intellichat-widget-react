@@ -1,4 +1,4 @@
-import AiChatWidget, { AiChatWidget as NamedAiChatWidget } from './components/ai-chat-widget/ai-chat-widget';
+import AiChatWidget from './components/ai-chat-widget/ai-chat-widget';
 
 export { AiChatWidget };
 

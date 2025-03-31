@@ -32,7 +32,7 @@ const loadScript = (src: string, type: string = 'module'): Promise<void> => {
 const initAiChatWidget = async (domain: string, token: string, proxy?: string): Promise<void> => {
   // For SSR
   if (typeof window === 'undefined') return;
-  
+
   if (window.aiChatDidInit) {
     return;
   }
@@ -57,12 +57,12 @@ const initAiChatWidget = async (domain: string, token: string, proxy?: string): 
 function AiChatWidgetComponent({
   token,
   proxy,
-  url = "https://widget.intellichat.ru"
+  url = 'https://widget.intellichat.ru',
 }: AiChatWidgetProps) {
   useEffect(() => {
     // For SSR
     if (typeof window === 'undefined') return;
-    
+
     const timeoutId = setTimeout(() => {
       initAiChatWidget(url, token, proxy).catch(console.error);
     }, 100);
